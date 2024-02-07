@@ -1,17 +1,25 @@
-// Uncomment the code below and write your tests
-/* import {  simpleCalculator, Action } from './index';
+import { simpleCalculator, Action } from './index';
 
 const testCases = [
-    { a: 1, b: 2, action: Action.Add, expected: 3 },
-    { a: 2, b: 2, action: Action.Add, expected: 4 },
-    { a: 3, b: 2, action: Action.Add, expected: 5 },
-    // continue cases for other actions    
-]; */
+  { input: { a: 1, b: 2, action: Action.Add }, expected: 3 },
+  { input: { a: 2, b: 2, action: Action.Add }, expected: 4 },
+  { input: { a: 3, b: 2, action: Action.Add }, expected: 5 },
+  { input: { a: 3, b: 2, action: Action.Subtract }, expected: 1 },
+  { input: { a: 4, b: 1, action: Action.Subtract }, expected: 3 },
+  { input: { a: 4, b: 2, action: Action.Multiply }, expected: 8 },
+  { input: { a: 3, b: 2, action: Action.Multiply }, expected: 6 },
+  { input: { a: 4, b: 2, action: Action.Divide }, expected: 2 },
+  { input: { a: 9, b: 3, action: Action.Divide }, expected: 3 },
+  { input: { a: 2, b: 2, action: Action.Exponentiate }, expected: 4 },
+  { input: { a: 2, b: 3, action: Action.Exponentiate }, expected: 8 },
+  { input: { a: 2, b: 3, action: 'invalidAction' }, expected: null },
+  { input: { a: '2', b: 'ddd', action: Action.Multiply }, expected: null },
+];
 
 describe('simpleCalculator', () => {
-  // This test case is just to run this test suite, remove it when you write your own tests
-  test('should blah-blah', () => {
-    expect(true).toBe(true);
+  testCases.forEach(({ input, expected }) => {
+    test(`simpleCalculator should calculate selected action: ${input.action} for a = ${input.a} and b = ${input.b}`, () => {
+      expect(simpleCalculator(input)).toBe(expected);
+    });
   });
-  // Consider to use Jest table tests API to test all cases above
 });

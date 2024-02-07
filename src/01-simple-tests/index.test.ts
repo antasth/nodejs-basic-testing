@@ -37,7 +37,7 @@ describe('simpleCalculator tests', () => {
   });
 
   test('should return null for invalid action', () => {
-    const input = { a: 2, b: 3, action: 'Get' };
+    const input = { a: 2, b: 3, action: 'invalidAction' };
     const result = simpleCalculator(input);
 
     expect(result).toBe(null);
